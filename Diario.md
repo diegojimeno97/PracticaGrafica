@@ -6,3 +6,7 @@ Aprendizaje básico de las interfaces y creación de proyecto en Github.
 -----02/10/2017-----
 -----2H-----
 Selección de modelos para el comienzo.
+
+-----03/10/2017-----
+-----4:15H-----
+Comienzo del aprendizaje de modelado en Blender.
