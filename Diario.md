@@ -19,3 +19,10 @@ Busqueda de mallas para blender.
 -----2:00H-----
 Importación del escenario principal a Maratis.
 
+-----06/11/2017-----
+-----4:00H-----
+Investigar maratis.
+
+-----04/12/2017-----
+-----4:00H-----
+Importación de modelos.
