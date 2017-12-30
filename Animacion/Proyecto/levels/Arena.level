@@ -6,6 +6,7 @@
 
 	<Scene name="Scene-1">
 
+		<script file="../scripts/Arena.lua" />
 		<properties 
 			data="Static"
 			gravity="0.000000 0.000000 -0.981000" />
@@ -24,18 +25,136 @@
 				spotExponent="0.000000"
 				shadow="false" />
 		</Light>
-		<Entity name="Entity0" file="../meshs/Entorno.mesh">
+		<Camera name="Camera0">
+			<active value="true" />
+			<transform 
+				position="49.222988 -49.262589 19.289295"
+				rotation="63.434959 0.000002 -42.265461"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				clearColor="0.200000 0.300000 0.400000"
+				ortho="false"
+				fov="60.000000"
+				clippingNear="1.000000"
+				clippingFar="1000.000000"
+				fog="false"
+				fogDistance="1000.000000" />
+			<Behavior name="LookAt">
+				<properties 
+					target="Sheep" />
+			</Behavior>
+			<Behavior name="Follow">
+				<properties 
+					target="CamPos"
+					delay="0.000000"
+					offset="0.000000 0.000000 0.000000"
+					local="true" />
+			</Behavior>
+		</Camera>
+		<Entity name="Entorno" file="../meshs/Entorno/Entorno.mesh">
 			<BoundingBox min="-653.032471 -315.782990 -94.102371" max="465.846191 418.855469 145.838577" />
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="73.988914 -83.297005 94.963005"
+				position="73.905289 -82.876869 94.962692"
 				rotation="0.000000 -0.000000 0.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
 				invisible="false" />
+			<physics 
+				shape="TriangleMesh"
+				ghost="false"
+				mass="0.000000"
+				friction="0.500000"
+				restitution="0.000000"
+				linearDamping="0.010000"
+				angularDamping="0.010000"
+				angularFactor="1.000000"
+				linearFactor="1.000000 1.000000 1.000000" />
 		</Entity>
-
+		<Entity name="Sheep" file="../meshs/sheep.mesh">
+			<BoundingBox min="-0.338683 -0.664205 0.052536" max="0.333590 0.533933 1.369053" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				parent="Player"
+				position="-0.000005 -0.151101 -5.735493"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="7.504724 7.504724 7.504724" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="Player" file="../meshs/box.mesh">
+			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="74.000000 -22.000000 5.515761"
+				rotation="0.000000 -0.000000 137.734543"
+				scale="0.820895 0.820895 0.820895" />
+			<properties 
+				invisible="true" />
+			<physics 
+				shape="Sphere"
+				ghost="false"
+				mass="1.000000"
+				friction="0.500000"
+				restitution="0.000000"
+				linearDamping="0.010000"
+				angularDamping="0.010000"
+				angularFactor="0.000000"
+				linearFactor="1.000000 1.000000 1.000000" />
+		</Entity>
+		<Entity name="Feet" file="../meshs/box.mesh">
+			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				parent="Player"
+				position="-0.000017 -0.878442 -5.115004"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="0.584047 0.584047 0.146014" />
+			<properties 
+				invisible="true" />
+			<physics 
+				shape="Box"
+				ghost="true"
+				mass="0.000000"
+				friction="0.500000"
+				restitution="0.000000"
+				linearDamping="0.010000"
+				angularDamping="0.010000"
+				angularFactor="1.000000"
+				linearFactor="1.000000 1.000000 1.000000" />
+		</Entity>
+		<Entity name="CamPos" file="../meshs/box.mesh">
+			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="49.222988 -49.262589 19.289295"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="0.395012 0.395012 0.395012" />
+			<properties 
+				invisible="true" />
+			<physics 
+				shape="Sphere"
+				ghost="false"
+				mass="0.010000"
+				friction="0.010000"
+				restitution="0.010000"
+				linearDamping="0.900000"
+				angularDamping="0.010000"
+				angularFactor="0.000000"
+				linearFactor="0.200000 0.200000 0.200000" />
+			<Behavior name="Follow">
+				<properties 
+					target="Sheep"
+					delay="0.000000"
+					offset="0.000000 6.000000 3.000000"
+					local="true" />
+			</Behavior>
+		</Entity>
 	</Scene>
 
 </Level>

@@ -2,6 +2,7 @@
 
 <Project>
 
+	<renderer name="StandardRenderer" />
 	<start file="levels/Arena.level" />
 
 </Project>
