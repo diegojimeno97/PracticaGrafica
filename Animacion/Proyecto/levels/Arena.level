@@ -1,0 +1,43 @@
+<Maratis version="3.0">
+
+<Level>
+
+	<properties currentScene="0" />
+
+	<Scene name="Scene-1">
+
+		<properties 
+			data="Static"
+			gravity="0.000000 0.000000 -0.981000" />
+
+		<Light name="Light0">
+			<active value="true" />
+			<transform 
+				position="-80.863388 -88.523064 627.024048"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				radius="1000.000000"
+				color="10.000000 10.000000 10.000000"
+				intensity="1.000000"
+				spotAngle="180.000000"
+				spotExponent="0.000000"
+				shadow="false" />
+		</Light>
+		<Entity name="Entity0" file="../meshs/Entorno.mesh">
+			<BoundingBox min="-653.032471 -315.782990 -94.102371" max="465.846191 418.855469 145.838577" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="73.988914 -83.297005 94.963005"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+
+	</Scene>
+
+</Level>
+
+</Maratis>

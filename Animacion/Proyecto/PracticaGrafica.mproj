@@ -1,0 +1,9 @@
+<Maratis version="3.0">
+
+<Project>
+
+	<start file="levels/Arena.level" />
+
+</Project>
+
+</Maratis>
