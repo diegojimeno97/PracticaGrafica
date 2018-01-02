@@ -236,7 +236,7 @@
 			<active value="true" />
 			<transform 
 				position="70.858833 110.835121 1.176013"
-				rotation="0.000000 -0.000000 -180.000000"
+				rotation="0.000000 0.000000 -180.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
 				invisible="false" />
@@ -252,7 +252,7 @@
 				linearFactor="1.000000 1.000000 1.000000" />
 		</Entity>
 		<Entity name="Catedral" file="../meshs/Casas/Catedral.mesh">
-			<BoundingBox min="-54.352894 -81.588448 -60.142132" max="68.556641 85.978279 125.810287" />
+			<BoundingBox min="-54.352894 -81.588448 -60.171799" max="68.556641 85.978279 125.810287" />
 			<anim id="0" />
 			<active value="true" />
 			<transform 
@@ -299,7 +299,7 @@
 			<active value="true" />
 			<transform 
 				position="131.467224 187.608978 1.162596"
-				rotation="-0.000000 -0.000000 -180.000000"
+				rotation="0.000000 -0.000000 -180.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
 				invisible="false" />

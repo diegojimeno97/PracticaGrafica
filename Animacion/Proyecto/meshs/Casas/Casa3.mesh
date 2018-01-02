@@ -4,7 +4,7 @@
 
 <Textures num="1">
 	<Texture id="0">
-		<image filename="textures\Farmhouse Texture.jpg" mipmap="1" />
+		<image filename="..\..\maps\Casas\Casa3\Farmhouse Texture.jpg" mipmap="1" />
 		<mapMode value="1" />
 		<tile u="repeat" v="repeat" />
 		<translate x="0.000000" y="0.000000" />
