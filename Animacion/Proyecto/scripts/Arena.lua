@@ -8,24 +8,22 @@ function onSceneUpdate()
 	move = 0
 
 	if isKeyPressed("LSHIFT") then
-		vel=15
-		gir=1
+		vel=13
 		des=0.5
 	else
-		vel=10
-		gir=0.5
+		vel=12.2
 		des=0.9
 	end
 	
 	-- Rotar a la Izquierda
 	if isKeyPressed("A") then
-		rotate(Jugador, {0, 0, gir}, 2)
+		rotate(Jugador, {0, 0, 1}, 2)
 		addCentralForce(Jugador, {0, -vel, 0}, "local")
 	end
 
 	-- Rotar a la derecha
 	if isKeyPressed("D") then
-		rotate(Jugador, {0, 0, gir}, -2)
+		rotate(Jugador, {0, 0, 1}, -2)
 		addCentralForce(Jugador, {0, -vel, 0}, "local")
 	end
 	
