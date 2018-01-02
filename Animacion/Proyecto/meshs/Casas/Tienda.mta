@@ -1,6 +1,6 @@
 <Maratis>
 
-<TextureAnim num="8">
+<TextureAnim num="7">
 
 	<Texture id="0">
 		<translate num="1">
@@ -51,14 +51,6 @@
 		</scale>
 	</Texture>
 	<Texture id="6">
-		<translate num="1">
-			<k t="250" x="0.000000" y="0.000000" />
-		</translate>
-		<scale num="1">
-			<k t="250" x="1.000000" y="1.000000" />
-		</scale>
-	</Texture>
-	<Texture id="7">
 		<translate num="1">
 			<k t="250" x="0.000000" y="0.000000" />
 		</translate>
