@@ -1,48 +1,43 @@
------------------------------------------------------------------------------------
--- Maratis
--- YoFrankie Arena example
------------------------------------------------------------------------------------
+-- Obtener Objeto
+Jugador = getObject("Jugador")
 
--- get objects
-Sheep = getObject("Sheep")
-Player = getObject("Player")
-Feet = getObject("Feet")
-
--- scene update
+-- Actualización de la escena
 function onSceneUpdate()
 
-	coll = getNumCollisions(Feet)
+	coll = getNumCollisions(Jugador)
 	move = 0
 
-	-- rotate left
-	if isKeyPressed("LEFT") and (coll > 1)  then
-		rotate(Player, {0, 0, 1}, 5)
-		move = 1
+	if isKeyPressed("LSHIFT") then
+		vel=15
+		gir=1
+		des=0.5
+	else
+		vel=10
+		gir=0.5
+		des=0.9
+	end
+	
+	-- Rotar a la Izquierda
+	if isKeyPressed("A") then
+		rotate(Jugador, {0, 0, gir}, 2)
+		addCentralForce(Jugador, {0, -vel, 0}, "local")
 	end
 
-	-- rotate right
-	if isKeyPressed("RIGHT") and (coll > 1) then
-		rotate(Player, {0, 0, 1}, -5)
-		move = 1
+	-- Rotar a la derecha
+	if isKeyPressed("D") then
+		rotate(Jugador, {0, 0, gir}, -2)
+		addCentralForce(Jugador, {0, -vel, 0}, "local")
 	end
 	
 	-- move Sheep
-	if isKeyPressed("UP") and (coll > 1) then
-		move = 1
+	if isKeyPressed("W") then
+		addCentralForce(Jugador, {0, -vel, 0}, "local")
+	end
+	
+	-- move Sheep
+	if isKeyPressed("S") then
+		addCentralForce(Jugador, {0, vel, 0}, "local")
 	end
 
-	if move == 1 then
-		addCentralForce(Player, {1, -10, 0}, "local")
-		changeAnimation(Sheep, 1)
-	else
-		changeAnimation(Sheep, 0)
-	end
-	
-	-- manual friction (set damping if Player touch the ground)
-	if coll < 2 then
-		setLinearDamping(Player, 0.01)
-	else
-		setLinearDamping(Player, 0.9)
-	end
-	
+	setLinearDamping(Jugador, des)	
 end
