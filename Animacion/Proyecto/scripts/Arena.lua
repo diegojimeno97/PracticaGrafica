@@ -4,15 +4,21 @@ Cam = getObject("Camara")
 P1 = getObject("Prohibido1")
 P2 = getObject("Prohibido2")
 P3 = getObject("Prohibido3")
-cont = 0
-fot = 0
+S1 = getObject("Sonido1")
+S2 = getObject("Sonido2")
+
+-- niebla: Espera a que la niebla se halla ejecutado 20 veces para ponerla
+-- sound: Indica que el sonido ya ha sido iniciado
+-- prop: Es la variable que se utiliza para que la niebla aumente/disminuya proporcionalmente
+niebla = 0
+sound = 0
+prop = 0
 
 -- Actualización de la escena
 function onSceneUpdate()
-
-	coll = getNumCollisions(Jugador)
-	move = 0
-
+	-- Vel: Fuerza que tiene el usuario
+	-- Des: Rozamiento que tiene el usuario con el entorno
+	
 	if isKeyPressed("LSHIFT") then
 		vel=16
 		des=0.8
@@ -45,30 +51,44 @@ function onSceneUpdate()
 	
 	-- Niebla si el usuario toca un lugar prohibido
 	if isCollisionBetween(Jugador, P1) or isCollisionBetween(Jugador, P2) or isCollisionBetween(Jugador, P3) then
-		cont = cont + 1
-		if cont>10 then
-			fot = fot + 1
-			if fot>0 and fot<50 then 
-				setCameraFogDistance(Cam, 50*fot)
+		niebla = niebla + 1
+		if niebla>10 then
+			prop = prop + 1
+			if prop>0 and prop<50 then 
+				setCameraFogDistance(Cam, 50*prop)
 			end
 			enableCameraFog(Cam, true)
 		end
 	else 
-		cont = 0
-		if fot>0 then
-			if fot>50 then fot=50 end
-			setCameraFogDistance(Cam, 50*fot)
-			fot = fot - 1
+		niebla = 0
+		if prop>0 then
+			if prop>50 then prop=50 end
+			setCameraFogDistance(Cam, 50*prop)
+			prop = prop - 1
 		else 
 			enableCameraFog(Cam, false)
 		end	
 		
 	end
 	
-	-- Cambio de color foco
-	seg = os.date("%H")*3600+os.date("%M")*60+os.date("%S")
+	minute = os.date("%M")
+	seg = os.date("%S")
+
+	-- Reproducir sonido
+	if seg == "00" then
+		if sound == 0 then
+			if minute%2==0 then playSound(S1)
+			else playSound(S2) end
+			sound = 1
+		end
+	else sound = 0 end
 	
-	-- print(os.date("%H")*3600+os.date("%M")*60+os.date("%S"))
+	-- Cambio de color foco
+	mintot = os.date("%H")*60+minute
+	
+	-- if (os.date("%S")==0) then 
+	
+	-- print(os.date("%H")*3600+os.date("%M")*60+)
 	
 	setLinearDamping(Jugador, des)	
 end

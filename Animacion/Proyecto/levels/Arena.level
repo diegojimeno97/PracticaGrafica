@@ -41,6 +41,34 @@
 				fog="false"
 				fogDistance="0.000000" />
 		</Camera>
+		<Sound name="Sonido1" file="../sounds/Cricket.wav">
+			<active value="true" />
+			<transform 
+				position="0.000000 0.000000 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				loop="false"
+				pitch="1.000000"
+				gain="50.000000"
+				radius="10.000000"
+				rolloff="1.000000"
+				relative="false" />
+		</Sound>
+		<Sound name="Sonido2" file="../sounds/Wind3.wav">
+			<active value="true" />
+			<transform 
+				position="0.000000 0.000000 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				loop="false"
+				pitch="1.000000"
+				gain="50.000000"
+				radius="10.000000"
+				rolloff="1.000000"
+				relative="false" />
+		</Sound>
 		<Entity name="Jugador" file="../meshs/box.mesh">
 			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
 			<anim id="0" />
@@ -529,7 +557,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="252.037445 35.139111 50.079872"
+				position="253.368561 35.139111 50.079872"
 				rotation="0.000000 -0.000000 0.000000"
 				scale="7.294803 71.673241 9.595628" />
 			<properties 
@@ -550,7 +578,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="-272.944763 35.139111 47.197315"
+				position="-257.212585 35.139111 47.197315"
 				rotation="0.000000 -0.000000 0.000000"
 				scale="6.908256 69.517860 9.395453" />
 			<properties 
