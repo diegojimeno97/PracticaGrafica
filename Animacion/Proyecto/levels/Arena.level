@@ -33,7 +33,7 @@
 				rotation="89.999969 -0.000002 -177.730255"
 				scale="1.218183 0.267616 1.218183" />
 			<properties 
-				clearColor="0.200000 0.300000 0.400000"
+				clearColor="0.400000 0.400000 0.400000"
 				ortho="false"
 				fov="60.000000"
 				clippingNear="1.000000"
@@ -74,7 +74,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="-1.000000 -241.014130 4.597656"
+				position="-1.000000 -216.643784 4.597656"
 				rotation="0.000000 -0.000000 177.730255"
 				scale="0.224632 0.337022 0.705926" />
 			<properties 
@@ -95,7 +95,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="-0.702456 56.052418 1.158554"
+				position="-0.698868 56.038620 1.161898"
 				rotation="0.000000 -0.000000 0.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
@@ -264,7 +264,7 @@
 			<active value="true" />
 			<transform 
 				position="70.858833 110.835121 1.176013"
-				rotation="0.000000 0.000000 -180.000000"
+				rotation="0.000000 -0.000000 -180.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
 				invisible="false" />
@@ -327,7 +327,7 @@
 			<active value="true" />
 			<transform 
 				position="131.467224 187.608978 1.162596"
-				rotation="0.000000 -0.000000 -180.000000"
+				rotation="-0.000000 -0.000000 -180.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
 				invisible="false" />
@@ -557,9 +557,9 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="253.368561 35.139111 50.079872"
+				position="253.368561 77.714066 46.330002"
 				rotation="0.000000 -0.000000 0.000000"
-				scale="7.294803 71.673241 9.595628" />
+				scale="7.570000 47.285378 9.320000" />
 			<properties 
 				invisible="true" />
 			<physics 
@@ -578,9 +578,9 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="-257.212585 35.139111 47.197315"
+				position="-257.212585 58.485146 46.330002"
 				rotation="0.000000 -0.000000 0.000000"
-				scale="6.908256 69.517860 9.395453" />
+				scale="7.570000 48.920933 9.320000" />
 			<properties 
 				invisible="true" />
 			<physics 
@@ -599,9 +599,9 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="-7.336416 -288.552795 46.846180"
+				position="-7.336416 -271.546387 46.330002"
 				rotation="0.000000 -0.000000 0.000000"
-				scale="60.223034 7.571709 9.321879" />
+				scale="34.499069 7.571709 9.321879" />
 			<properties 
 				invisible="true" />
 			<physics 
@@ -615,16 +615,190 @@
 				angularFactor="1.000000"
 				linearFactor="1.000000 1.000000 1.000000" />
 		</Entity>
-		<Entity name="Inicio" file="../meshs/box.mesh">
+		<Entity name="Prohibido4" file="../meshs/box.mesh">
 			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="-1.000000 -241.014130 4.597656"
+				position="-183.486206 -221.520279 46.330727"
+				rotation="0.000000 0.000000 -38.083508"
+				scale="21.492853 7.570000 9.320000" />
+			<properties 
+				invisible="true" />
+			<physics 
+				shape="Box"
+				ghost="false"
+				mass="0.000000"
+				friction="0.500000"
+				restitution="0.000000"
+				linearDamping="0.010000"
+				angularDamping="0.010000"
+				angularFactor="1.000000"
+				linearFactor="1.000000 1.000000 1.000000" />
+		</Entity>
+		<Entity name="Prohibido5" file="../meshs/box.mesh">
+			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="161.676407 -221.520279 46.330727"
+				rotation="0.000000 -0.000000 38.080006"
+				scale="21.492853 7.570000 9.320000" />
+			<properties 
+				invisible="true" />
+			<physics 
+				shape="Box"
+				ghost="false"
+				mass="0.000000"
+				friction="0.500000"
+				restitution="0.000000"
+				linearDamping="0.010000"
+				angularDamping="0.010000"
+				angularFactor="1.000000"
+				linearFactor="1.000000 1.000000 1.000000" />
+		</Entity>
+		<Entity name="햞bolE1" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-308.192993 -130.467300 0.000000"
 				rotation="0.000000 -0.000000 0.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
-				invisible="true" />
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE2" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-365.767212 39.312679 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE3" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-351.540436 220.304062 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE4" file="../meshs/Entorno/Arbol2.mesh">
+			<BoundingBox min="-55.984535 -56.679344 -2.567984" max="57.426945 57.969051 106.080978" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-300.048370 110.389832 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE5" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-274.322449 2.797110 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE6" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-95.250191 -261.241211 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE7" file="../meshs/Entorno/Arbol2.mesh">
+			<BoundingBox min="-55.984535 -56.679344 -2.567984" max="57.426945 57.969051 106.080978" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-3.421693 -279.469330 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE8" file="../meshs/Entorno/Arbol2.mesh">
+			<BoundingBox min="-55.984535 -56.679344 -2.567984" max="57.426945 57.969051 106.080978" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="295.875031 227.457458 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE9" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="361.504425 82.271820 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE10" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="268.815002 136.554367 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE11" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="337.646088 -68.439293 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE12" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-299.100647 306.637329 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
+		</Entity>
+		<Entity name="햞bolE13" file="../meshs/Entorno/Arbol1.mesh">
+			<BoundingBox min="-21.322683 -28.672279 -0.167691" max="25.534924 26.412086 83.620728" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="119.246155 -249.558243 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="false" />
 		</Entity>
 
 	</Scene>

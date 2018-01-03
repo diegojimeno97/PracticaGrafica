@@ -4,6 +4,8 @@ Cam = getObject("Camara")
 P1 = getObject("Prohibido1")
 P2 = getObject("Prohibido2")
 P3 = getObject("Prohibido3")
+P4 = getObject("Prohibido4")
+P5 = getObject("Prohibido5")
 S1 = getObject("Sonido1")
 S2 = getObject("Sonido2")
 
@@ -16,43 +18,52 @@ prop = 0
 
 -- Actualización de la escena
 function onSceneUpdate()
-	-- Vel: Fuerza que tiene el usuario
-	-- Des: Rozamiento que tiene el usuario con el entorno
-	
-	if isKeyPressed("LSHIFT") then
-		vel=16
-		des=0.8
+	-- Comprueba si el Jugador está en contacto con al menos un objeto (la cámara), si no es así
+	-- fuerza la caída
+	if getNumCollisions(Jugador) < 1 then
+		addCentralForce(Jugador, {0, 0, 0}, "local")
+		setLinearDamping(Jugador, 0.01)
 	else
-		vel=12.2
-		des=0.9
-	end
-	
-	-- Rotar a la Izquierda
-	if isKeyPressed("A") then
-		rotate(Jugador, {0, 0, 1}, 2)
-		addCentralForce(Jugador, {0, -vel, 0}, "local")
-	end
+		-- Vel: Fuerza que tiene el usuario
+		-- Des: Rozamiento que tiene el usuario con el entorno	
+		if isKeyPressed("LSHIFT") then
+			vel=16
+			des=0.8
+		else
+			vel=12.2
+			des=0.9
+		end
+		
+		-- Rotar a la Izquierda
+		if isKeyPressed("A") then
+			rotate(Jugador, {0, 0, 1}, 2)
+			addCentralForce(Jugador, {0, -vel, 0}, "local")
+		end
 
-	-- Rotar a la derecha
-	if isKeyPressed("D") then
-		rotate(Jugador, {0, 0, 1}, -2)
-		addCentralForce(Jugador, {0, -vel, 0}, "local")
-	end
-	
-	-- Moverse hacia delante
-	if isKeyPressed("W") then
-		addCentralForce(Jugador, {0, -vel, 0}, "local")
-	end
-	
-	-- Moverse hacia detrás
-	if isKeyPressed("S") then
-		addCentralForce(Jugador, {0, vel, 0}, "local")
+		-- Rotar a la derecha
+		if isKeyPressed("D") then
+			rotate(Jugador, {0, 0, 1}, -2)
+			addCentralForce(Jugador, {0, -vel, 0}, "local")
+		end
+		
+		-- Moverse hacia delante
+		if isKeyPressed("W") then
+			addCentralForce(Jugador, {0, -vel, 0}, "local")
+		end
+		
+		-- Moverse hacia detrás
+		if isKeyPressed("S") then
+			addCentralForce(Jugador, {0, vel, 0}, "local")
+		end
+		
+		setLinearDamping(Jugador, des)
 	end
 	
 	-- Niebla si el usuario toca un lugar prohibido
-	if isCollisionBetween(Jugador, P1) or isCollisionBetween(Jugador, P2) or isCollisionBetween(Jugador, P3) then
+	if isCollisionBetween(Jugador, P1) or isCollisionBetween(Jugador, P2) or isCollisionBetween(Jugador, P3) 
+	or isCollisionBetween(Jugador, P4) or isCollisionBetween(Jugador, P5) then
 		niebla = niebla + 1
-		if niebla>10 then
+		if niebla>5 then
 			prop = prop + 1
 			if prop>0 and prop<50 then 
 				setCameraFogDistance(Cam, 50*prop)
@@ -88,7 +99,5 @@ function onSceneUpdate()
 	
 	-- if (os.date("%S")==0) then 
 	
-	-- print(os.date("%H")*3600+os.date("%M")*60+)
-	
-	setLinearDamping(Jugador, des)	
+	-- print(os.date("%H")*3600+os.date("%M")*60+)	
 end
