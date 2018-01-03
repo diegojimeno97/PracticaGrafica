@@ -41,7 +41,7 @@
 				fog="false"
 				fogDistance="0.000000" />
 		</Camera>
-		<Sound name="Sonido1" file="../sounds/Cricket.wav">
+		<Sound name="SNoche1" file="../sounds/Cricket.wav">
 			<active value="true" />
 			<transform 
 				position="0.000000 0.000000 0.000000"
@@ -55,10 +55,38 @@
 				rolloff="1.000000"
 				relative="false" />
 		</Sound>
-		<Sound name="Sonido2" file="../sounds/Wind3.wav">
+		<Sound name="SDia1" file="../sounds/Wind3.wav">
 			<active value="true" />
 			<transform 
 				position="0.000000 0.000000 0.000000"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				loop="false"
+				pitch="1.000000"
+				gain="50.000000"
+				radius="10.000000"
+				rolloff="1.000000"
+				relative="false" />
+		</Sound>
+		<Sound name="SNoche2" file="../sounds/tf1.wav">
+			<active value="true" />
+			<transform 
+				position="-0.698868 11.488203 1.162272"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				loop="false"
+				pitch="1.000000"
+				gain="50.000000"
+				radius="10.000000"
+				rolloff="1.000000"
+				relative="false" />
+		</Sound>
+		<Sound name="SDia2" file="../sounds/tf4.wav">
+			<active value="true" />
+			<transform 
+				position="-0.698868 11.488203 1.162272"
 				rotation="0.000000 -0.000000 0.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
@@ -264,7 +292,7 @@
 			<active value="true" />
 			<transform 
 				position="70.858833 110.835121 1.176013"
-				rotation="0.000000 -0.000000 -180.000000"
+				rotation="0.000000 0.000000 -180.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
 				invisible="false" />
@@ -327,7 +355,7 @@
 			<active value="true" />
 			<transform 
 				position="131.467224 187.608978 1.162596"
-				rotation="-0.000000 -0.000000 -180.000000"
+				rotation="0.000000 -0.000000 -180.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
 				invisible="false" />

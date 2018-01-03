@@ -1,4 +1,4 @@
--- Obtener Objeto
+-- Obtener Objetos
 Jugador = getObject("Jugador")
 Cam = getObject("Camara")
 P1 = getObject("Prohibido1")
@@ -6,8 +6,11 @@ P2 = getObject("Prohibido2")
 P3 = getObject("Prohibido3")
 P4 = getObject("Prohibido4")
 P5 = getObject("Prohibido5")
-S1 = getObject("Sonido1")
-S2 = getObject("Sonido2")
+Luz = getObject("Luz")
+SN1 = getObject("SNoche1")
+SN2 = getObject("SNoche2")
+SD1 = getObject("SDia1")
+SD2 = getObject("SDia2")
 
 -- niebla: Espera a que la niebla se halla ejecutado 20 veces para ponerla
 -- sound: Indica que el sonido ya ha sido iniciado
@@ -82,9 +85,28 @@ function onSceneUpdate()
 		
 	end
 	
-	minute = os.date("%M")
+	-- Cambio de color foco
 	seg = os.date("%S")
-
+	minute=os.date("%M")
+	segtot = ( os.date("%H")*60*60)+(minute*60)+seg
+	
+	S1=SD1
+	S2=SD2
+	-- Noche1, amanecer1, amanecer2, dia, atardecer1, atardecer2, noche2
+	if segtot>=0 and segtot<32400 then 
+		S1 = SN1
+		S2 = SN2
+	elseif segtot>=32400 and segtot<34200 then setLightColor(Luz, getLight(1, 1, 6, 9, 9, -4, 32400, segtot))
+	elseif segtot>=34200 and segtot<36000 then setLightColor(Luz, getLight(10, 10, 2, 0, 0, 8, 34200, segtot))
+	elseif segtot>=36000 and segtot<75600 then setLightColor(Luz, {10, 10, 10})
+	elseif segtot>=75600 and segtot<77400 then setLightColor(Luz, getLight(10, 10, 10, 0, -6, -8, 75600, segtot))
+	elseif segtot>=77400 and segtot<79200 then setLightColor(Luz, getLight(10, 4, 2, -9, -3, 4, 77400, segtot))
+	elseif segtot>=79200 then
+		S1 = SN1
+		S2 = SN2
+		setLightColor(Luz, {1, 1, 6})
+	end
+	
 	-- Reproducir sonido
 	if seg == "00" then
 		if sound == 0 then
@@ -93,11 +115,13 @@ function onSceneUpdate()
 			sound = 1
 		end
 	else sound = 0 end
-	
-	-- Cambio de color foco
-	mintot = os.date("%H")*60+minute
-	
-	-- if (os.date("%S")==0) then 
-	
-	-- print(os.date("%H")*3600+os.date("%M")*60+)	
+end
+
+function getLight(ar, ag, ab, sr, sg, sb, hstart, hreal)
+	if hstart == hreal then t=0
+	else t=(hreal-hstart)/1800 end
+	r = ar + (sr*t)
+	g = ag + (sg*t)
+	b = ab + (sb*t)
+	return {r, g, b}
 end
