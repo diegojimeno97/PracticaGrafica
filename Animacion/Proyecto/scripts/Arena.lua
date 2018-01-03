@@ -1,43 +1,127 @@
--- Obtener Objeto
+-- Obtener Objetos
 Jugador = getObject("Jugador")
+Cam = getObject("Camara")
+P1 = getObject("Prohibido1")
+P2 = getObject("Prohibido2")
+P3 = getObject("Prohibido3")
+P4 = getObject("Prohibido4")
+P5 = getObject("Prohibido5")
+Luz = getObject("Luz")
+SN1 = getObject("SNoche1")
+SN2 = getObject("SNoche2")
+SD1 = getObject("SDia1")
+SD2 = getObject("SDia2")
+
+-- niebla: Espera a que la niebla se halla ejecutado 20 veces para ponerla
+-- sound: Indica que el sonido ya ha sido iniciado
+-- prop: Es la variable que se utiliza para que la niebla aumente/disminuya proporcionalmente
+niebla = 0
+sound = 0
+prop = 0
 
 -- Actualización de la escena
 function onSceneUpdate()
-
-	coll = getNumCollisions(Jugador)
-	move = 0
-
-	if isKeyPressed("LSHIFT") then
-		vel=15
-		gir=1
-		des=0.5
+	-- Comprueba si el Jugador está en contacto con al menos un objeto (la cámara), si no es así
+	-- fuerza la caída
+	if getNumCollisions(Jugador) < 1 then
+		addCentralForce(Jugador, {0, 0, 0}, "local")
+		setLinearDamping(Jugador, 0.01)
 	else
-		vel=10
-		gir=0.5
-		des=0.9
-	end
-	
-	-- Rotar a la Izquierda
-	if isKeyPressed("A") then
-		rotate(Jugador, {0, 0, gir}, 2)
-		addCentralForce(Jugador, {0, -vel, 0}, "local")
-	end
+		-- Vel: Fuerza que tiene el usuario
+		-- Des: Rozamiento que tiene el usuario con el entorno	
+		if isKeyPressed("LSHIFT") then
+			vel=16
+			des=0.8
+		else
+			vel=12.2
+			des=0.9
+		end
+		
+		-- Rotar a la Izquierda
+		if isKeyPressed("A") then
+			rotate(Jugador, {0, 0, 1}, 2)
+			addCentralForce(Jugador, {0, -vel, 0}, "local")
+		end
 
-	-- Rotar a la derecha
-	if isKeyPressed("D") then
-		rotate(Jugador, {0, 0, gir}, -2)
-		addCentralForce(Jugador, {0, -vel, 0}, "local")
+		-- Rotar a la derecha
+		if isKeyPressed("D") then
+			rotate(Jugador, {0, 0, 1}, -2)
+			addCentralForce(Jugador, {0, -vel, 0}, "local")
+		end
+		
+		-- Moverse hacia delante
+		if isKeyPressed("W") then
+			addCentralForce(Jugador, {0, -vel, 0}, "local")
+		end
+		
+		-- Moverse hacia detrás
+		if isKeyPressed("S") then
+			addCentralForce(Jugador, {0, vel, 0}, "local")
+		end
+		
+		setLinearDamping(Jugador, des)
 	end
 	
-	-- move Sheep
-	if isKeyPressed("W") then
-		addCentralForce(Jugador, {0, -vel, 0}, "local")
+	-- Niebla si el usuario toca un lugar prohibido
+	if isCollisionBetween(Jugador, P1) or isCollisionBetween(Jugador, P2) or isCollisionBetween(Jugador, P3) 
+	or isCollisionBetween(Jugador, P4) or isCollisionBetween(Jugador, P5) then
+		niebla = niebla + 1
+		if niebla>5 then
+			prop = prop + 1
+			if prop>0 and prop<50 then 
+				setCameraFogDistance(Cam, 50*prop)
+			end
+			enableCameraFog(Cam, true)
+		end
+	else 
+		niebla = 0
+		if prop>0 then
+			if prop>50 then prop=50 end
+			setCameraFogDistance(Cam, 50*prop)
+			prop = prop - 1
+		else 
+			enableCameraFog(Cam, false)
+		end	
+		
 	end
 	
-	-- move Sheep
-	if isKeyPressed("S") then
-		addCentralForce(Jugador, {0, vel, 0}, "local")
+	-- Cambio de color foco
+	seg = os.date("%S")
+	minute=os.date("%M")
+	segtot = ( os.date("%H")*60*60)+(minute*60)+seg
+	
+	S1=SD1
+	S2=SD2
+	-- Noche1, amanecer1, amanecer2, dia, atardecer1, atardecer2, noche2
+	if segtot>=0 and segtot<32400 then 
+		S1 = SN1
+		S2 = SN2
+	elseif segtot>=32400 and segtot<34200 then setLightColor(Luz, getLight(1, 1, 6, 9, 9, -4, 32400, segtot))
+	elseif segtot>=34200 and segtot<36000 then setLightColor(Luz, getLight(10, 10, 2, 0, 0, 8, 34200, segtot))
+	elseif segtot>=36000 and segtot<75600 then setLightColor(Luz, {10, 10, 10})
+	elseif segtot>=75600 and segtot<77400 then setLightColor(Luz, getLight(10, 10, 10, 0, -6, -8, 75600, segtot))
+	elseif segtot>=77400 and segtot<79200 then setLightColor(Luz, getLight(10, 4, 2, -9, -3, 4, 77400, segtot))
+	elseif segtot>=79200 then
+		S1 = SN1
+		S2 = SN2
+		setLightColor(Luz, {1, 1, 6})
 	end
+	
+	-- Reproducir sonido
+	if seg == "00" then
+		if sound == 0 then
+			if minute%2==0 then playSound(S1)
+			else playSound(S2) end
+			sound = 1
+		end
+	else sound = 0 end
+end
 
-	setLinearDamping(Jugador, des)	
+function getLight(ar, ag, ab, sr, sg, sb, hstart, hreal)
+	if hstart == hreal then t=0
+	else t=(hreal-hstart)/1800 end
+	r = ar + (sr*t)
+	g = ag + (sg*t)
+	b = ab + (sb*t)
+	return {r, g, b}
 end
