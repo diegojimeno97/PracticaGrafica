@@ -46,7 +46,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="-1.000000 -325.390015 4.597656"
+				position="-1.000000 -241.014130 4.597656"
 				rotation="0.000000 -0.000000 177.730255"
 				scale="0.224632 0.337022 0.705926" />
 			<properties 
@@ -130,7 +130,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="-175.460342 -66.295532 0.000000"
+				position="-168.153107 -66.295532 0.000000"
 				rotation="0.000000 -0.000000 50.000008"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
@@ -340,7 +340,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="120.950943 -90.379997 0.000000"
+				position="98.842888 -90.379997 0.000000"
 				rotation="0.000000 -0.000000 90.000000"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
@@ -361,7 +361,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="168.513901 -170.352020 0.000000"
+				position="160.048187 -170.352020 0.000000"
 				rotation="0.000000 -0.000000 40.000004"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
@@ -403,7 +403,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="-179.019745 -139.560043 0.000000"
+				position="-158.249008 -139.560043 0.000000"
 				rotation="0.000000 -0.000000 9.999970"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
@@ -445,7 +445,7 @@
 			<anim id="0" />
 			<active value="true" />
 			<transform 
-				position="188.543320 -86.153229 0.000000"
+				position="170.200256 -86.153229 0.000000"
 				rotation="0.000000 -0.000000 20.000015"
 				scale="1.000000 1.000000 1.000000" />
 			<properties 
@@ -523,6 +523,80 @@
 				angularDamping="0.010000"
 				angularFactor="1.000000"
 				linearFactor="1.000000 1.000000 1.000000" />
+		</Entity>
+		<Entity name="Prohibido1" file="../meshs/box.mesh">
+			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="252.037445 35.139111 50.079872"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="7.294803 71.673241 9.595628" />
+			<properties 
+				invisible="true" />
+			<physics 
+				shape="Box"
+				ghost="false"
+				mass="0.000000"
+				friction="0.500000"
+				restitution="0.000000"
+				linearDamping="0.010000"
+				angularDamping="0.010000"
+				angularFactor="1.000000"
+				linearFactor="1.000000 1.000000 1.000000" />
+		</Entity>
+		<Entity name="Prohibido2" file="../meshs/box.mesh">
+			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-272.944763 35.139111 47.197315"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="6.908256 69.517860 9.395453" />
+			<properties 
+				invisible="true" />
+			<physics 
+				shape="Box"
+				ghost="false"
+				mass="0.000000"
+				friction="0.500000"
+				restitution="0.000000"
+				linearDamping="0.010000"
+				angularDamping="0.010000"
+				angularFactor="1.000000"
+				linearFactor="1.000000 1.000000 1.000000" />
+		</Entity>
+		<Entity name="Prohibido3" file="../meshs/box.mesh">
+			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-7.336416 -288.552795 46.846180"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="60.223034 7.571709 9.321879" />
+			<properties 
+				invisible="true" />
+			<physics 
+				shape="Box"
+				ghost="false"
+				mass="0.000000"
+				friction="0.500000"
+				restitution="0.000000"
+				linearDamping="0.010000"
+				angularDamping="0.010000"
+				angularFactor="1.000000"
+				linearFactor="1.000000 1.000000 1.000000" />
+		</Entity>
+		<Entity name="Inicio" file="../meshs/box.mesh">
+			<BoundingBox min="-5.000000 -5.000000 -5.000000" max="5.000000 5.000000 5.000000" />
+			<anim id="0" />
+			<active value="true" />
+			<transform 
+				position="-1.000000 -241.014130 4.597656"
+				rotation="0.000000 -0.000000 0.000000"
+				scale="1.000000 1.000000 1.000000" />
+			<properties 
+				invisible="true" />
 		</Entity>
 
 	</Scene>
