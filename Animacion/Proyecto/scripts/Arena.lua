@@ -1,6 +1,6 @@
 -- Obtener Objetos
-Jugador = getObject("Jugador")
 Cam = getObject("Camara")
+rift = getObject("Prohibido1")
 P1 = getObject("Prohibido1")
 P2 = getObject("Prohibido2")
 P3 = getObject("Prohibido3")
@@ -11,6 +11,16 @@ SN1 = getObject("SNoche1")
 SN2 = getObject("SNoche2")
 SD1 = getObject("SDia1")
 SD2 = getObject("SDia2")
+Jugador = getObject("Jugador")
+Cabeza = getObject("Cabeza")
+
+dx = 0.0
+dy = 0.0
+
+hideCursor()
+centerCursor()
+mx = getAxis("MOUSE_X")
+my = getAxis("MOUSE_Y")
 
 -- niebla: Espera a que la niebla se halla ejecutado 20 veces para ponerla
 -- sound: Indica que el sonido ya ha sido iniciado
@@ -23,44 +33,60 @@ prop = 0
 function onSceneUpdate()
 	-- Comprueba si el Jugador está en contacto con al menos un objeto (la cámara), si no es así
 	-- fuerza la caída
-	if getNumCollisions(Jugador) < 1 then
-		addCentralForce(Jugador, {0, 0, 0}, "local")
-		setLinearDamping(Jugador, 0.01)
-	else
-		-- Vel: Fuerza que tiene el usuario
-		-- Des: Rozamiento que tiene el usuario con el entorno	
-		if isKeyPressed("LSHIFT") then
-			vel=16
-			des=0.8
-		else
-			vel=12.2
-			des=0.9
-		end
-		
-		-- Rotar a la Izquierda
-		if isKeyPressed("A") then
-			rotate(Jugador, {0, 0, 1}, 2)
-			addCentralForce(Jugador, {0, -vel, 0}, "local")
-		end
 
-		-- Rotar a la derecha
-		if isKeyPressed("D") then
-			rotate(Jugador, {0, 0, 1}, -2)
-			addCentralForce(Jugador, {0, -vel, 0}, "local")
-		end
-		
-		-- Moverse hacia delante
-		if isKeyPressed("W") then
-			addCentralForce(Jugador, {0, -vel, 0}, "local")
-		end
-		
-		-- Moverse hacia detrás
-		if isKeyPressed("S") then
-			addCentralForce(Jugador, {0, vel, 0}, "local")
-		end
-		
-		setLinearDamping(Jugador, des)
+	-- Vel: Fuerza que tiene el usuario
+	-- Des: Rozamiento que tiene el usuario con el entorno	
+	if isKeyPressed("MOUSE_BUTTON1") then
+		vel=15
+		des=0.82
+	else
+		vel=10
+		des=0.9
 	end
+	
+	-- Girar a la Izquierda 
+	if isKeyPressed("A") then
+		rotate(Jugador, {0, 0, 1}, 0.8)
+	end
+
+	-- Girar a la derecha
+	if isKeyPressed("D") then
+		rotate(Jugador, {0, 0, -1}, 0.8)
+	end
+	
+	-- Moverse hacia delante
+	if isKeyPressed("W") then
+		addCentralForce(Jugador, {0, -vel, 0}, "local")
+	end
+	
+	-- Moverse hacia detrás
+	if isKeyPressed("S") then
+		addCentralForce(Jugador, {0, vel, 0}, "local")
+	end
+		
+	setLinearDamping(Jugador, des)
+	
+	-- Rotar jugador con ratón (X)
+	rotate(Jugador, {0, 0, -1}, dx*50)
+	
+	-- Rotar jugador con ratón (Y)
+	rotate(Cabeza, {1, 0, 0}, dy*50, "local")	
+	rotation = getRotation(Cabeza)
+	if rotation[1] > 90 then
+		rotation[1] = 90
+	elseif rotation[1] < -90 then
+		rotation[1] = -90
+	end
+	setRotation(Cabeza, rotation)
+	
+	-- Obtener dirección del ratón
+	dx = getAxis("MOUSE_X") - mx
+	dy = getAxis("MOUSE_Y") - my
+
+	-- Centrar Cursor
+	centerCursor()
+	mx = getAxis("MOUSE_X")
+	my = getAxis("MOUSE_Y")	
 	
 	-- Niebla si el usuario toca un lugar prohibido
 	if isCollisionBetween(Jugador, P1) or isCollisionBetween(Jugador, P2) or isCollisionBetween(Jugador, P3) 
@@ -96,8 +122,8 @@ function onSceneUpdate()
 	if segtot>=0 and segtot<32400 then 
 		S1 = SN1
 		S2 = SN2
-	elseif segtot>=32400 and segtot<34200 then setLightColor(Luz, getLight(1, 1, 6, 9, 9, -4, 32400, segtot))
-	elseif segtot>=34200 and segtot<36000 then setLightColor(Luz, getLight(10, 10, 2, 0, 0, 8, 34200, segtot))
+	elseif segtot>=32400 and segtot<34200 then setLightColor(Luz, getLight(1, 1, 6, 9, 9, -1, 32400, segtot))
+	elseif segtot>=34200 and segtot<36000 then setLightColor(Luz, getLight(10, 10, 5, 0, 0, 5, 34200, segtot))
 	elseif segtot>=36000 and segtot<75600 then setLightColor(Luz, {10, 10, 10})
 	elseif segtot>=75600 and segtot<77400 then setLightColor(Luz, getLight(10, 10, 10, 0, -6, -8, 75600, segtot))
 	elseif segtot>=77400 and segtot<79200 then setLightColor(Luz, getLight(10, 4, 2, -9, -3, 4, 77400, segtot))
