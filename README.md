@@ -1,4 +1,4 @@
-#Autores
+# Autores
 Sergio Tabarés Medina
 Diego Jimeno de la Calle
 
@@ -25,7 +25,7 @@ El proyecto se compone de dos principales directorios:
 		sounds: sonidos utilizados en el proyecto.
 - Mallas: 	Aquí se encuentran los modelos con las texturas en .blend
 
-## video
+## Vídeo
 Se incluye un vídeo en el que se puede visualizar todo el proyecto ejecutandose.
 
 ## Información adicional
