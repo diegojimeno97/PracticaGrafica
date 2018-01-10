@@ -1,6 +1,5 @@
 # Autores
-Sergio Tabarés Medina
-Diego Jimeno de la Calle
+Sergio Tabarés Medina y Diego Jimeno de la Calle
 
 
 # Práctica Gráfica
