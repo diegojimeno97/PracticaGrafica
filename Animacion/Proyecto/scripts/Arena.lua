@@ -22,18 +22,15 @@ centerCursor()
 mx = getAxis("MOUSE_X")
 my = getAxis("MOUSE_Y")
 
--- niebla: Espera a que la niebla se halla ejecutado 20 veces para ponerla
+-- niebla: Es la variable que se utiliza para que la niebla aumente/disminuya proporcionalmente
 -- sound: Indica que el sonido ya ha sido iniciado
--- prop: Es la variable que se utiliza para que la niebla aumente/disminuya proporcionalmente
 niebla = 0
 sound = 0
-prop = 0
 
 -- Actualización de la escena
 function onSceneUpdate()
-	-- Comprueba si el Jugador está en contacto con al menos un objeto (la cámara), si no es así
-	-- fuerza la caída
-
+	
+	-- Preparación de botones
 	-- Vel: Fuerza que tiene el usuario
 	-- Des: Rozamiento que tiene el usuario con el entorno	
 	if isKeyPressed("MOUSE_BUTTON1") then
@@ -63,9 +60,13 @@ function onSceneUpdate()
 	if isKeyPressed("S") then
 		addCentralForce(Jugador, {0, vel, 0}, "local")
 	end
+	
+	-- Salir del juego pulsando Esc
+	if isKeyPressed("ESCAPE") then quit() end
 		
 	setLinearDamping(Jugador, des)
 	
+	-- Desplazamiento con ratón
 	-- Rotar jugador con ratón (X)
 	rotate(Jugador, {0, 0, -1}, dx*50)
 	
@@ -87,20 +88,19 @@ function onSceneUpdate()
 	centerCursor()
 	mx = getAxis("MOUSE_X")
 	my = getAxis("MOUSE_Y")	
-	
 
 	-- Niebla si el usuario toca un lugar prohibido
 	if isCollisionBetween(Jugador, P1) or isCollisionBetween(Jugador, P2) or isCollisionBetween(Jugador, P3) 
 	or isCollisionBetween(Jugador, P4) or isCollisionBetween(Jugador, P5) then
-		if prop<50 then 
-			prop = prop + 1
-			setCameraFogDistance(Cam, 50*prop)
+		if niebla<50 then 
+			niebla = niebla + 1
+			setCameraFogDistance(Cam, 50*niebla)
 			enableCameraFog(Cam, true)
 		end
 	else 
-		if prop>0 then
-			setCameraFogDistance(Cam, 50*prop)
-			prop = prop - 1
+		if niebla>0 then
+			setCameraFogDistance(Cam, 50*niebla)
+			niebla = niebla - 1
 		else 
 			enableCameraFog(Cam, false)
 		end	
