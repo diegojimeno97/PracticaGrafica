@@ -116,16 +116,12 @@ function onSceneUpdate()
 	S2=SD2
 	
 	-- Noche1, amanecer1, amanecer2, dia, atardecer1, atardecer2, Noche2
-	if segtot>=0 and segtot<32400 then 
-		S1 = SN1
-		S2 = SN2
-		setLightColor(Luz, {1, 1, 6})
-	elseif segtot>=32400 and segtot<34200 then setLightColor(Luz, getLight(1, 1, 6, 9, 9, -1, 32400, segtot))
+	if segtot>=32400 and segtot<34200 then setLightColor(Luz, getLight(1, 1, 6, 9, 9, -1, 32400, segtot))
 	elseif segtot>=34200 and segtot<36000 then setLightColor(Luz, getLight(10, 10, 5, 0, 0, 5, 34200, segtot))
 	elseif segtot>=36000 and segtot<75600 then setLightColor(Luz, {10, 10, 10})
 	elseif segtot>=75600 and segtot<77400 then setLightColor(Luz, getLight(10, 10, 10, 0, -6, -8, 75600, segtot))
 	elseif segtot>=77400 and segtot<79200 then setLightColor(Luz, getLight(10, 4, 2, -9, -3, 4, 77400, segtot))
-	elseif segtot>=79200 then
+	else
 		S1 = SN1
 		S2 = SN2
 		setLightColor(Luz, {1, 1, 6})
