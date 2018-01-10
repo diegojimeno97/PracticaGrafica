@@ -4,7 +4,7 @@
 
 <Textures num="8">
 	<Texture id="0">
-		<image filename="textures\AOCastle.tga" mipmap="1" />
+		<image filename="..\..\maps\Entorno\muralla\AOCastle.tga" mipmap="1" />
 		<mapMode value="1" />
 		<tile u="repeat" v="repeat" />
 		<translate x="0.000000" y="0.000000" />
@@ -12,7 +12,7 @@
 		<rotate angle="0.000000" />
 	</Texture>
 	<Texture id="1">
-		<image filename="textures\RooftilesCeramicOld0091_2_SSPEC.jpg" mipmap="1" />
+		<image filename="..\..\maps\Entorno\muralla\RooftilesCeramicOld0091_2_SSPEC.jpg" mipmap="1" />
 		<mapMode value="1" />
 		<tile u="repeat" v="repeat" />
 		<translate x="0.000000" y="0.000000" />

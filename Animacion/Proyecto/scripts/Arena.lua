@@ -88,21 +88,17 @@ function onSceneUpdate()
 	mx = getAxis("MOUSE_X")
 	my = getAxis("MOUSE_Y")	
 	
+
 	-- Niebla si el usuario toca un lugar prohibido
 	if isCollisionBetween(Jugador, P1) or isCollisionBetween(Jugador, P2) or isCollisionBetween(Jugador, P3) 
 	or isCollisionBetween(Jugador, P4) or isCollisionBetween(Jugador, P5) then
-		niebla = niebla + 1
-		if niebla>5 then
+		if prop<50 then 
 			prop = prop + 1
-			if prop>0 and prop<50 then 
-				setCameraFogDistance(Cam, 50*prop)
-			end
+			setCameraFogDistance(Cam, 50*prop)
 			enableCameraFog(Cam, true)
 		end
 	else 
-		niebla = 0
 		if prop>0 then
-			if prop>50 then prop=50 end
 			setCameraFogDistance(Cam, 50*prop)
 			prop = prop - 1
 		else 
@@ -118,10 +114,12 @@ function onSceneUpdate()
 	
 	S1=SD1
 	S2=SD2
-	-- Noche1, amanecer1, amanecer2, dia, atardecer1, atardecer2, noche2
+	
+	-- Noche1, amanecer1, amanecer2, dia, atardecer1, atardecer2, Noche2
 	if segtot>=0 and segtot<32400 then 
 		S1 = SN1
 		S2 = SN2
+		setLightColor(Luz, {1, 1, 6})
 	elseif segtot>=32400 and segtot<34200 then setLightColor(Luz, getLight(1, 1, 6, 9, 9, -1, 32400, segtot))
 	elseif segtot>=34200 and segtot<36000 then setLightColor(Luz, getLight(10, 10, 5, 0, 0, 5, 34200, segtot))
 	elseif segtot>=36000 and segtot<75600 then setLightColor(Luz, {10, 10, 10})
