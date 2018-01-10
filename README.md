@@ -25,7 +25,7 @@ El proyecto se compone de dos principales directorios:
 - Mallas: 	Aquí se encuentran los modelos con las texturas en .blend
 
 ## Vídeo
-Se incluye un vídeo en el que se puede visualizar todo el proyecto ejecutandose.
+[![Video de muestra](http://img.youtube.com/vi/wi5oXCap3tc/0.jpg)](http://www.youtube.com/watch?v=wi5oXCap3tc "Video de muestra")
 
 ## Información adicional
 Para saber mas sobre el proyecto, puede acceder a una documentación completa en: 
