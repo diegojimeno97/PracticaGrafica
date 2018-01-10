@@ -28,5 +28,5 @@ El proyecto se compone de dos principales directorios:
 Se incluye un vídeo en el que se puede visualizar todo el proyecto ejecutandose.
 
 ## Información adicional
-Para saber mas sobre el proyecto, puede acceder a una documentación completa en: https://github.com/diegojimeno97/PracticaGrafica/wiki
+Para saber mas sobre el proyecto, puede acceder a una documentación completa en: https://github.com/diegojimeno97/PracticaGrafica/wiki /n
 Si desea saber más sobre la organización del proyecto, puede consultar esto: https://github.com/diegojimeno97/PracticaGrafica/issues/1
