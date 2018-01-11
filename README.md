@@ -30,3 +30,6 @@ El proyecto se compone de dos principales directorios:
 ## Información adicional
 Para saber mas sobre el proyecto, puede acceder a una documentación completa en: 
 - Wiki: https://github.com/diegojimeno97/PracticaGrafica/wiki
+ 
+
+Este proyecto de github puede ser visitado en http://bit.ly/ProyectoGrafica
